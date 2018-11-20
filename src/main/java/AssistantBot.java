@@ -9,15 +9,21 @@ import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 //import org.apache.log4j.*;
 
 public class AssistantBot extends TelegramLongPollingBot {
 
+    private static MessageHandler messageHandler;
     //example Start
     public static void main(String[] args) {
+        messageHandler = new MessageHandler();
         ApiContextInitializer.init();
         TelegramBotsApi botapi = new TelegramBotsApi();
-
         try {
             botapi.registerBot(new AssistantBot());
         } catch (TelegramApiException e) {
@@ -26,7 +32,7 @@ public class AssistantBot extends TelegramLongPollingBot {
     }
 
     //example answer TEXT
-    public void sendTextMsg(Message msg, String text) {
+    private void sendTextMsg(Message msg, String text) {
         try {
             execute(new SendMessage().setChatId(msg.getChatId()).setText(text));
         } catch (Exception e) {
@@ -59,10 +65,11 @@ public class AssistantBot extends TelegramLongPollingBot {
         Message message = update.getMessage();
 
         if (message != null && message.hasText()){
-            if (message.getText().contains("Hello"))
+            /*if (message.getText().contains("Hello"))
                 sendTextMsg(message, "Hello world");
             else
-                sendTextMsg(message, "Brave new world!!!");
+                sendTextMsg(message, "Brave new world!!!");*/
+            sendTextMsg(message, messageHandler.textToText(message.getText()));
         }
     }
 
