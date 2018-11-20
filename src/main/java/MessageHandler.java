@@ -9,8 +9,13 @@ class MessageHandler {
     }
 
     String textToText(String message){
-        if (message.toUpperCase().contentEquals("/START"))
+        if (message.toUpperCase().contentEquals("/START")) {
             return startAnswer;
+        }
+
+        if (message.equals("Hello!")) {
+            return "Good morning!";
+        }
 
 
         return noAnswer;
