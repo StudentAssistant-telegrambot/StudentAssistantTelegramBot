@@ -19,7 +19,7 @@ class MessageHandler {
             return startAnswer;
         }
 
-        if (message.equals("Hello!")) {
+        if (message.toLowerCase().equals("hello!")) {
             return "Good morning!!!";
         }
 
