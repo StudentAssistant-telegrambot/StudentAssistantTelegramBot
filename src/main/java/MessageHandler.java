@@ -5,8 +5,7 @@ class MessageHandler {
 
     private String startseccsessful = "Vasya Privet";
     private String noAnswer = "I can't understand you. Hello!";
-=======
-    private String noAnswer = "Napiwi norm";
+
 
 
     MessageHandler(){
