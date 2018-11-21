@@ -11,7 +11,7 @@ class MessageHandler {
     String textToText(String message){
 
         if (message.toUpperCase().contentEquals("/STARTED"))
-          return "Vitalik"
+          return "Vitalik";
 
         
         if (message.toUpperCase().contentEquals("/START")) {
