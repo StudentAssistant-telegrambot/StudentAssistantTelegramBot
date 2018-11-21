@@ -1,15 +1,21 @@
 class MessageHandler {
 
-    private String startAnswer = "Welcome to the Student assistant bot. Now it can answer to you. Hello world version";
+    private String startAnswer = "Darova ot Vitalika";
 
-    private String noAnswer = "I can't understand you. Hello!";
+    private String noAnswer = "Napiwi norm";
 
     MessageHandler(){
 
     }
 
     String textToText(String message){
+
+        if (message.toUpperCase().contentEquals("/STARTED"))
+          return "Vitalik"
+
+        
         if (message.toUpperCase().contentEquals("/START")) {
+
             return startAnswer;
         }
 
