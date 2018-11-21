@@ -17,10 +17,10 @@ class MessageHandler {
         if (message.toUpperCase().contentEquals("/START")) {
 
             return startAnswer;
-
+        }
         if (message.toUpperCase().contentEquals("/STARTED"))
             return startseccsessful;
-        }
+        
 
         if (message.toLowerCase().equals("hello!")) {
             return "Good morning!!!";
