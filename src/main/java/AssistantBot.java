@@ -11,6 +11,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -69,7 +70,11 @@ public class AssistantBot extends TelegramLongPollingBot {
                 sendTextMsg(message, "Hello world");
             else
                 sendTextMsg(message, "Brave new world!!!");*/
-            sendTextMsg(message, messageHandler.textToText(message.getText()));
+            try {
+                sendTextMsg(message, messageHandler.textToText(message.getText()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
